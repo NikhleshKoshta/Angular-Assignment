@@ -1,6 +1,7 @@
 <div class="row d-flex">
     <div class="input-group mb-3 w-50 justify-content-center">
-        <input #userInput type="text" class="form-control" placeholder="Search...">
+        <input #userInput type="text" (keydown.enter)="getRecords($event.target.value)" class="form-control"
+            placeholder="Search...">
         <div class="input-group-append">
             <button mat-raised-button color="primary" (click)="getRecords(userInput.value)">Search</button>
         </div>
