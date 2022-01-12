@@ -35,11 +35,7 @@ export class SearchDataComponent implements OnInit {
       this.dataService.getData(key).subscribe((data: Data) => {
         this.collection = new MatTableDataSource(data['results']);
         this.collection.paginator = this.paginator;
-        if (this.collection.filteredData.length >= 1) {
-          this.showTable = false;
-        } else {
-          this.showTable = true;
-        }
+        this.showTable = (this.collection.filteredData.length >= 1) ? false : true;
       })
     } else {
       this.showTable = true;
